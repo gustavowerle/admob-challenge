@@ -23,10 +23,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jetnews">
 
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
-
         <!-- adjustResize ensures that the main window resizes to make room for the soft keyboard-->
         <activity
             android:name=".ui.MainActivity"
