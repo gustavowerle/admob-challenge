@@ -37,3 +37,4 @@ dependencyResolutionManagement {
 rootProject.name = "JetNews"
 include(":app")
 
+include(":advertisement")
