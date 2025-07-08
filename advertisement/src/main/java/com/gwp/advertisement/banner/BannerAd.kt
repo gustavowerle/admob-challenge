@@ -34,6 +34,7 @@ import com.gwp.advertisement.R
  * @param modifier The modifier to apply to the banner ad.
  * @param isVisible Show or hide banner.
  * @param type Type of the banner [INLINE_ADAPTIVE, COLLAPSIBLE_TOP, COLLAPSIBLE_BOTTOM].
+ * @param onAdLoaded Callback to be invoked when the banner ad is loaded.
  */
 @Composable
 fun BannerAd(
