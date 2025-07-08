@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.compose.LifecycleResumeEffect
 import com.google.ads.mediation.admob.AdMobAdapter
+import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -38,8 +39,9 @@ fun BannerAd(
     modifier: Modifier = Modifier,
     isVisible: State<Boolean>,
     type: BannerType,
+    onAdLoaded: () -> Unit = {},
 ) {
-    val adView = createAdView(type)
+    val adView = createAdView(type, onAdLoaded)
 
     // Pause/resume the ad when the lifecycle is paused/resumed.
     LifecycleResumeEffect(adView) {
@@ -85,7 +87,10 @@ private fun Content(
 }
 
 @Composable
-private fun createAdView(type: BannerType): AdView {
+private fun createAdView(
+    type: BannerType,
+    onAdLoaded: () -> Unit,
+): AdView {
     val context = LocalContext.current
 
     return AdView(context).apply {
@@ -101,6 +106,13 @@ private fun createAdView(type: BannerType): AdView {
         }
 
         setAdSize(adSize)
+
+        this.adListener = object : AdListener() {
+            override fun onAdLoaded() {
+                super.onAdLoaded()
+                onAdLoaded()
+            }
+        }
 
         loadAd(
             AdRequest.Builder()

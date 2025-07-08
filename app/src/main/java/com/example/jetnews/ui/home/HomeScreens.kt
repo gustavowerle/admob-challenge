@@ -442,6 +442,7 @@ private fun PostList(
     searchInput: String = "",
     onSearchInputChanged: (String) -> Unit,
 ) {
+    val isAdVisible = remember { mutableStateOf(false) }
     LazyColumn(
         modifier = modifier,
         contentPadding = contentPadding,
@@ -472,8 +473,11 @@ private fun PostList(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 8.dp),
-                isVisible = remember { mutableStateOf(true) },
+                isVisible = isAdVisible,
                 type = BannerType.INLINE_ADAPTIVE,
+                onAdLoaded = {
+                    isAdVisible.value = true
+                }
             )
         }
         if (postsFeed.popularPosts.isNotEmpty() && !showExpandedSearch) {
