@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -79,7 +80,9 @@ private fun Content(
             )
         } else {
             AndroidView(
-                modifier = modifier.wrapContentSize(),
+                modifier = modifier
+                    .wrapContentSize()
+                    .testTag("banner_view"),
                 factory = { adView }
             )
         }
