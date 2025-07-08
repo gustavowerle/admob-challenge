@@ -74,6 +74,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
@@ -111,6 +112,8 @@ import com.example.jetnews.ui.utils.BookmarkButton
 import com.example.jetnews.ui.utils.FavoriteButton
 import com.example.jetnews.ui.utils.ShareButton
 import com.example.jetnews.ui.utils.TextSettingsButton
+import com.gwp.advertisement.banner.BannerAd
+import com.gwp.advertisement.banner.BannerType
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.runBlocking
@@ -463,6 +466,15 @@ private fun PostList(
                     onToggleFavorite,
                 )
             }
+        }
+        item {
+            BannerAd(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp),
+                isVisible = remember { mutableStateOf(true) },
+                type = BannerType.INLINE_ADAPTIVE,
+            )
         }
         if (postsFeed.popularPosts.isNotEmpty() && !showExpandedSearch) {
             item {

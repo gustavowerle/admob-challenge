@@ -43,6 +43,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -75,6 +77,8 @@ import com.example.jetnews.model.Paragraph
 import com.example.jetnews.model.ParagraphType
 import com.example.jetnews.model.Post
 import com.example.jetnews.ui.theme.JetnewsTheme
+import com.gwp.advertisement.banner.BannerAd
+import com.gwp.advertisement.banner.BannerType
 
 private val defaultSpacerSize = 16.dp
 
@@ -95,6 +99,13 @@ fun PostContent(
 }
 
 fun LazyListScope.postContentItems(post: Post) {
+    item {
+        BannerAd(
+            modifier = Modifier.fillMaxWidth(),
+            isVisible = remember { mutableStateOf(true) },
+            type = BannerType.COLLAPSIBLE_TOP
+        )
+    }
     item {
         PostHeaderImage(post)
         Spacer(Modifier.height(defaultSpacerSize))

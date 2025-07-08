@@ -23,11 +23,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import com.example.jetnews.JetnewsApplication
+import com.gwp.advertisement.initializeAds
 
 class MainActivity : ComponentActivity() {
 
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        initializeAds()
+
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
