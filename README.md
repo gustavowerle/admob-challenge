@@ -6,9 +6,10 @@ Sendo assim, o projeto contém dois módulos, o primeiro sendo o módulo app que
 e o segundo sendo o módulo advertisement que contém a implementação da biblioteca de integração com o AdMob.
 
 ## Screenshots
-
-<img src="screenshots/main_screen_banner.png" alt="Screenshot">
-<img src="screenshots/article_screen_banner.png" alt="Screenshot">
+<div>
+  <img src="screenshots/main_screen_banner.png" alt="Screenshot" width="240">
+  <img src="screenshots/article_screen_banner.png" alt="Screenshot" width="240">
+</div>
 
 ## Módulo advertisement
 
